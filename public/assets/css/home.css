@@ -1,0 +1,280 @@
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.image-container {
+    background-image: url('../images/home.png');
+    background-size: 100% 96%;
+    position: fixed;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.top-container {
+    align-items: center;
+    text-align: center;
+}
+
+.logo {
+    margin-top: 6%;
+}
+
+.title {
+    font-family: 'CIBFont Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 26px;
+
+}
+
+.center-container {
+    margin-top: 4%;
+    margin-left: 25%;
+
+}
+
+.card-container {
+    width: 50%;
+    margin: 0 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-color: white;
+}
+
+.card {
+    width: 25%;
+    /* Ajusta el ancho de cada card */
+    text-align: center;
+    margin: 0 10px;
+    /* Espacio entre cada card */
+}
+
+.card-image img {
+    width: 100%;
+}
+
+.card-description {
+    padding: 20px;
+}
+
+.card-button {
+    background-color: transparent;
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: #2C2A29;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-button {
+    width: 15%;
+    background: #FDDA24;
+    color: #2C2A29;
+    padding: 7px 24px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    font-family: 'CIBFont Sans';
+    font-style: normal;
+    font-size: 14px;
+    letter-spacing: -0.375px;
+    line-height: 24px;
+    font-weight: 700;
+}
+
+.icon {
+    background-image: url('../images/login-icon.png');
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+h1 {
+    font-family: 'CIBFont Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 32px;
+    /* identical to box height, or 80% */
+    letter-spacing: -0.45px;
+    /* text/bc-brand-primary-00 */
+    color: #2C2A29
+}
+
+h4 {
+    font-family: 'CIBFont Sans';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 24px;
+    line-height: 26px;
+    /* identical to box height, or 108% */
+    letter-spacing: -0.45px;
+    /* text/bc-brand-primary-00 */
+    color: #2C2A29;
+}
+
+hr {
+    position: absolute;
+    right: 5px;
+    bottom: 25px;
+    width: 100%;
+}
+
+.footer-container {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 4%;
+    text-align: right;
+    background-color: #f4f4f4
+}
+
+.privacy-link {
+    font-size: 14px;
+    color: #2C2A29;
+    position: relative;
+
+    display: inline-block;
+    padding: 10px;
+    color: #333;
+    text-decoration: underline;
+    margin-right: 10px;
+}
+
+@media only screen and (max-width: 1200px) {
+
+    .center-container {
+        margin-top: 4%;
+        margin-left: 28%;
+    
+    }
+
+    h1 {
+        margin-left: 110px;
+    }
+
+    .image-container {
+        background-size: 100% 98%;
+    }
+
+    .card-container {
+        width: 80%;
+        margin-left: 95px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+    }
+
+    @media (min-width: 1200px) {
+        .card-container {
+            width: 70%;
+            margin: 0 auto;
+        }
+
+        Copy code .card {
+            width: 20%;
+            /* Aumentar el ancho de cada card */
+            text-align: center;
+            margin: 0 10px;
+            /* Espacio entre cada card */
+        }
+    }
+
+    .card {
+        width: 47%;
+        margin: 10px 10px;
+        /* Ajustar el ancho de cada card /
+        text-align: center;
+        margin: 0 10px;
+        / Espacio entre cada card */
+    }
+
+    .card-image img {
+        width: 100%;
+    }
+
+    .card-description {
+        padding: 20px;
+    }
+
+    .card-button {
+        background-color: transparent;
+        border-radius: 20px;
+        padding: 10px 20px;
+        color: #2C2A29;
+        width: 70%;
+        font-weight: 700;
+    }
+
+    .nav-button {
+        width: 30%;
+        background: #FDDA24;
+        color: #2C2A29;
+        padding: 7px 24px;
+        margin: 20px 0;
+        border: none;
+        border-radius: 100px;
+        cursor: pointer;
+        font-family: 'CIBFont Sans';
+        font-style: normal;
+        font-size: 18px;
+        letter-spacing: -0.375px;
+        line-height: 24px;
+        font-weight: 700;
+    }
+
+    .footer-container {
+        left: 0;
+        margin: 0;
+        padding: 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 2%;
+        text-align: center;
+        background-color: #f4f4f4
+    }
+
+    .privacy-link {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-size: 18px;
+        line-height: 18px;
+        color: #2C2A29;
+        position: relative;
+        font-weight: 400;
+        display: inline-block;
+        padding: 10px;
+        color: #333;
+        text-decoration: underline;
+    }
+}
+
+@media screen and (min-width: 821px) and (max-width: 1199px) {
+    .center-container {
+        margin-top: 31%;
+        margin-left: 28%;
+    }
+    
+    .card-container{
+        margin-top: 80px;
+    }
+}

@@ -1,0 +1,203 @@
+<html>
+
+<head>
+    <title>¡Bienvenido al Wifi Bam!</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.3.5/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.3.5/dist/sweetalert2.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-section">
+            <img src="./assets/images/logo-bam.png" alt="Imagen de lado izquierdo" class="logo-img">
+            <div class="sub-header">
+                <h1>Permítenos conocerte</h1>
+            </div>
+            <h4>¡Bienvenido al Wifi Bam!</h4>
+            <form id="form-data">
+                <input type="hidden" name="wlan_id" value="{{wlan_id}}" />
+                <input type="hidden" name="ap_mac" value="{{ap_mac}}" />
+                <input type="hidden" name="client_mac" value="{{client_mac}}" />
+                <input type="hidden" name="url" value="{{url}}" />
+                <input type="hidden" name="ap_name" value="{{ap_name}}" />
+                <input type="hidden" name="site_name" value="{{site_name}}" />
+
+                <p>Ingresa tus datos</p>
+                <input type="text" id="name" name="name" placeholder="Nombre" autocomplete="off"
+                    onblur="validateForm()">
+                <input type="email" id="email" name="email" placeholder="Correo electrónico" autocomplete="off"
+                    onblur="validateForm()">
+            </form>
+            <button class="nav-button" id="btnNavegar" onclick="submitForm()">NAVEGAR<i class="icon"></i></button>
+        </div>
+        <div class="right-section">
+            <img src="./assets/images/r1.png" alt="Imagen de lado derecho" class="responsive-img">
+        </div>
+        <div class="footer-container">
+            <hr />
+            <a href="#" class="privacy-link">Política de aceptación de datos personales</a>
+        </div>
+    </div>
+    <script>
+        function submitForm() {
+
+            const form = document.getElementById('form-data');
+            const name = form.elements.name.value;
+            const email = form.elements.email.value;
+            const wlan_id = form.elements.wlan_id.value;
+            const ap_mac = form.elements.ap_mac.value;
+            const client_mac = form.elements.client_mac.value;
+            const url = form.elements.url.value;
+            const ap_name = form.elements.ap_name.value;
+            const site_name = form.elements.site_name.value;
+
+
+            let data = {
+                name: name,
+                email: email,
+                wlan_id: wlan_id,
+                ap_mac: ap_mac,
+                client_mac: client_mac,
+                url: url,
+                ap_name: ap_name,
+                site_name: site_name
+            }
+
+            console.log(data);
+
+            fetch('http://localhost:3000/authentication', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error(response.statusText);
+                    }
+                })
+                .then(data => {
+                    console.log(data);
+
+                    // Establecer una cookie con el nombre "name" y el valor que expire en 1 día.
+                    setCookie("name", data.name, 1);
+                    setCookie("alertShow", true, 1);
+
+                    window.location.href = data.url;
+                })
+                .catch(error => console.log(error));
+        }
+
+        /*
+        function submitForm() {
+    
+            const form = document.getElementById('form-data');
+            const name = form.elements.name.value;
+            const email = form.elements.email.value;
+    
+            console.log(name);
+            console.log(email);
+    
+            let data = {
+                name: name,
+                email: email
+            }
+    
+            fetch('authme.php', {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error(response.statusText);
+                    }
+                })
+                .then(data => {
+                    console.log(data);
+    
+                    if (data.status === 'success') {
+                        // form submitted successfully
+                        Swal.fire({
+                            title: 'Conexión exitosa',
+                            text: 'Bienvenido a al red WiFi.',
+                            icon: 'success',
+                            confirmButtonText: 'Entendido',
+                            confirmButtonColor: '#FDDA24',
+                            customClass: {
+                                confirmButton: 'nav-button'
+                            },
+                            showCloseButton: true,
+                        }).then(function() {
+                            window.location = "https://bam-demo.000webhostapp.com/home.php";
+                        });
+                    } else {
+                        // form submission failed
+                        Swal.fire({
+                            title: 'Conexión fallida',
+                            text: 'Error al conectarse a la red WiFi.',
+                            icon: 'error',
+                            confirmButtonText: 'Confirmar',
+                            showCloseButton: true,
+                        });
+                    }
+                }).catch(error => console.log(error));
+        }
+        */
+
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var submitButton = document.getElementById("btnNavegar");
+
+            if (name != "" && email != "") {
+                submitButton.disabled = false;
+                submitButton.style.cursor = "pointer";
+                submitButton.style.backgroundColor = "#FDDA24";
+
+                return true;
+            } else {
+                submitButton.disabled = true;
+                submitButton.style.cursor = "default";
+                submitButton.style.backgroundColor = "gray";
+
+                return false;
+            }
+        }
+
+
+        //Función para establecer una cookie
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        //Función para obtener una cookie
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+    </script>
+</body>
+
+</html>
