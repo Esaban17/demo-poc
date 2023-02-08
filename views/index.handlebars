@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -5,23 +6,25 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.3.5/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.3.5/dist/sweetalert2.min.js"></script>
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 
 <body>
     <div class="container">
         <div class="left-section">
-            <img src="./assets/images/logo-bam.png" alt="Imagen de lado izquierdo" class="logo-img">
+            <img src="./assets/images/logo-bam.png" alt="Imagen de lado izquierdo" class="logo-img" loading="lazy">
             <div class="sub-header">
                 <h1>Permítenos conocerte</h1>
             </div>
-            <h4>¡Bienvenido al Wifi Bam!</h4>
+            <h4>¡Bienvenido al Wifi Bam 2!</h4>
             <form id="form-data">
-                <input type="hidden" name="wlan_id" value="{{wlan_id}}" />
-                <input type="hidden" name="ap_mac" value="{{ap_mac}}" />
-                <input type="hidden" name="client_mac" value="{{client_mac}}" />
-                <input type="hidden" name="url" value="{{url}}" />
-                <input type="hidden" name="ap_name" value="{{ap_name}}" />
-                <input type="hidden" name="site_name" value="{{site_name}}" />
+                <input type="hidden" name="wlan_id" value="<?php echo($wlan_id) ?>" />
+                <input type="hidden" name="ap_mac" value="<?php echo($ap_mac) ?>" />
+                <input type="hidden" name="client_mac" value="<?php echo($client_mac) ?>" />
+                <input type="hidden" name="url" value="<?php echo($url) ?>" />
+                <input type="hidden" name="ap_name" value="<?php echo($ap_name) ?>" />
+                <input type="hidden" name="site_name" value="<?php echo($site_name) ?>" />
 
                 <p>Ingresa tus datos</p>
                 <input type="text" id="name" name="name" placeholder="Nombre" autocomplete="off"
@@ -32,7 +35,7 @@
             <button class="nav-button" id="btnNavegar" onclick="submitForm()">NAVEGAR<i class="icon"></i></button>
         </div>
         <div class="right-section">
-            <img src="./assets/images/r1.png" alt="Imagen de lado derecho" class="responsive-img">
+            <img src="./assets/images/r1.png" alt="Imagen de lado derecho" class="responsive-img" loading="lazy">
         </div>
         <div class="footer-container">
             <hr />
@@ -86,72 +89,10 @@
                     // Establecer una cookie con el nombre "name" y el valor que expire en 1 día.
                     setCookie("name", data.name, 1);
                     setCookie("alertShow", true, 1);
-
-                    window.location.href = data.url;
+                    window.open(data.url, "_system");
                 })
                 .catch(error => console.log(error));
         }
-
-        /*
-        function submitForm() {
-    
-            const form = document.getElementById('form-data');
-            const name = form.elements.name.value;
-            const email = form.elements.email.value;
-    
-            console.log(name);
-            console.log(email);
-    
-            let data = {
-                name: name,
-                email: email
-            }
-    
-            fetch('authme.php', {
-                    method: 'POST',
-                    body: JSON.stringify(data),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                })
-                .then(response => {
-                    if (response.ok) {
-                        return response.json();
-                    } else {
-                        throw new Error(response.statusText);
-                    }
-                })
-                .then(data => {
-                    console.log(data);
-    
-                    if (data.status === 'success') {
-                        // form submitted successfully
-                        Swal.fire({
-                            title: 'Conexión exitosa',
-                            text: 'Bienvenido a al red WiFi.',
-                            icon: 'success',
-                            confirmButtonText: 'Entendido',
-                            confirmButtonColor: '#FDDA24',
-                            customClass: {
-                                confirmButton: 'nav-button'
-                            },
-                            showCloseButton: true,
-                        }).then(function() {
-                            window.location = "https://bam-demo.000webhostapp.com/home.php";
-                        });
-                    } else {
-                        // form submission failed
-                        Swal.fire({
-                            title: 'Conexión fallida',
-                            text: 'Error al conectarse a la red WiFi.',
-                            icon: 'error',
-                            confirmButtonText: 'Confirmar',
-                            showCloseButton: true,
-                        });
-                    }
-                }).catch(error => console.log(error));
-        }
-        */
 
         function validateForm() {
             var name = document.getElementById("name").value;
@@ -172,7 +113,6 @@
                 return false;
             }
         }
-
 
         //Función para establecer una cookie
         function setCookie(cname, cvalue, exdays) {
@@ -197,6 +137,7 @@
             }
             return "";
         }
+
     </script>
 </body>
 

@@ -4,7 +4,7 @@
 }
 
 .image-container {
-    background-image: url('../images/home.png');
+    background-image: url('../images/desktop.png');
     background-size: 100% 96%;
     position: fixed;
     background-repeat: no-repeat;
@@ -32,15 +32,19 @@
 
 }
 
-.center-container {
-    margin-top: 4%;
+.welcome-container{
+    margin-top: 3%;
     margin-left: 25%;
+}
 
+.center-container {
+    margin-top: 3%;
+    margin-left: 25%;
 }
 
 .card-container {
     width: 50%;
-    margin: 0 400px;
+    margin: 0 440px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,6 +96,27 @@
     letter-spacing: -0.375px;
     line-height: 24px;
     font-weight: 700;
+}
+
+.confirm-button {
+    width: 45%;
+    background: #CCCCCC;
+    color: #2C2A29;
+    padding: 7px 24px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    font-family: 'CIBFont Sans';
+    font-style: normal;
+    font-size: 20px;
+    letter-spacing: -0.375px;
+    line-height: 24px;
+    cursor: default;
+}
+
+.confirm-button i {
+    margin-left: 10px;
 }
 
 .icon {
@@ -154,15 +179,30 @@ hr {
     padding: 10px;
     color: #333;
     text-decoration: underline;
-    margin-right: 10px;
+    margin-right: 10%;
+}
+
+.swal2-styled.swal2-confirm {
+    font-family: 'CIBFont Sans' !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    line-height: 20px !important;
+    letter-spacing: -0.3px !important;
+    color: #2C2A29 !important;
+    border-radius: 1.25em !important;
 }
 
 @media only screen and (max-width: 1200px) {
 
+    .welcome-container {
+        margin-top: 4%;
+        margin-left: 28%;
+    }
+
     .center-container {
         margin-top: 4%;
         margin-left: 28%;
-    
     }
 
     h1 {
@@ -170,7 +210,14 @@ hr {
     }
 
     .image-container {
-        background-size: 100% 98%;
+        background-image: url('../images/tablet.png');
+        background-size: 100% 100%;
+        position: fixed;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
     }
 
     .card-container {
@@ -262,19 +309,218 @@ hr {
         position: relative;
         font-weight: 400;
         display: inline-block;
-        padding: 10px;
+        padding: 5px;
         color: #333;
         text-decoration: underline;
     }
+    
 }
 
-@media screen and (min-width: 821px) and (max-width: 1199px) {
-    .center-container {
-        margin-top: 31%;
+@media only screen and (max-width: 900px) {
+
+    .logo {
+        width: 190px;
+        height: 50px;
+        margin-top: 4%;
+    }
+
+    .title {
+        font-size: 30px;
+        margin-top: 25px;
+    }
+
+    .top-container {
+        margin-top: 2%;
+    }
+
+    .welcome-container {
+        margin-top: 0%;
         margin-left: 28%;
+        padding-top: 0;
+    }
+
+    .center-container {
+        margin-top: 0%;
+        margin-left: 24%;
+        padding-top: 0;
+    }
+
+    
+    h1 {
+        margin-left: 85px;
+        margin-top: 40px;
+        margin-bottom: 15px;
+    }
+
+    h4 {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+
+    .image-container {
+        background-image: url('../images/tablet.png');
+        background-size: 100% 100%;
+        position: fixed;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
     }
     
     .card-container{
-        margin-top: 80px;
+        margin-top: 0px;
+        margin-left: 70px;
+        padding: 10px;
+    }
+
+    .card {
+        width: 45%;
+    }
+
+    .card-image img {
+        height: 135px;
+    }
+
+    
+    .card-description {
+        padding: 15px;
+    }
+
+    .nav-button {
+        width: 35%;
+        margin: 20px 0;
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    hr {
+        position: relative;
+        bottom: 0px;
+        right: 0px;
+    }
+
+    .footer-container {
+        text-align: center;
+        height: 6%;
+    }
+
+    .privacy-link {
+        font-size: 20px;
+        float: initial;
+        margin-right: 0px;
+        margin-left: 2px;
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+
+    .logo {
+        margin-top: 0;
+        width: 140px;
+        height: auto;
+    }
+
+    .top-container {
+        margin-top: 5%;
+    }
+
+    .welcome-container {
+        margin-top: 0;
+        margin-left: 15%;
+    }
+
+    .center-container {
+        margin-top: 0;
+        padding: 0;
+        margin-left: 8%;
+    }
+
+    .card-image img {
+        height: 85px;
+    }
+
+    .card-container {
+        margin-top: 0;
+        margin-left: 85px;
+        padding: 0;
+        background-color: transparent;
+    }
+
+    .card {
+        width: 47%;
+        margin: 5px 5px;
+    }
+
+    @media (max-width: 500px) {
+        .card-container {
+            width: 95%;
+            margin: 0 auto;
+        }
+
+        Copy code .card {
+            width: 20%;
+            /* Aumentar el ancho de cada card */
+            text-align: center;
+            margin: 0 10px;
+            /* Espacio entre cada card */
+        }
+    }
+
+    .card-button {
+        font-size: 6px;
+        font-weight: 900;
+    }
+
+    .card h3 {
+        font-size: 11px;
+    }
+
+    .card-description {
+        padding: 8px;
+        height: 75px;
+    }
+
+    .title {
+        margin-top: 10px;
+        font-size: 20px;
+    }
+
+    h1 {
+        font-size: 25px;
+        margin-bottom: 0;
+    }
+
+    h4 {
+        font-size: 16px;
+        margin-bottom: 0px;
+    }
+
+    .image-container {
+        background-image: url('../images/mobile.png');
+    }
+
+    .button-container {
+        margin-top: 0;
+    }
+
+    .nav-button {
+        width: 60%;
+        line-height: 10px;
+        font-size: 13px;
+        margin-top: 5px;
+    }
+
+    .icon {
+        width: 18px;
+        height: 18px;
+        background-size: 100% 100%;
+    }
+
+    .privacy-link {
+        font-size: 17px;
+        line-height: 10px;
     }
 }
